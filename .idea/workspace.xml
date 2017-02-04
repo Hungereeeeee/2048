@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a96f1b06-8bc3-4f57-a710-d562f181364c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2048.css" afterPath="$PROJECT_DIR$/2048.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReadMe.markdown" afterPath="$PROJECT_DIR$/ReadMe.markdown" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main2048.js" afterPath="$PROJECT_DIR$/main2048.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showannimation2048.js" afterPath="$PROJECT_DIR$/showannimation2048.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support2048.js" afterPath="$PROJECT_DIR$/support2048.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,20 +43,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2048.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="2048.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/2048.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-72">
-              <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+            <state relative-caret-position="360">
+              <caret line="40" column="12" lean-forward="false" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main2048.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main2048.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main2048.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
+            <state relative-caret-position="4536">
               <caret line="128" column="27" lean-forward="true" selection-start-line="128" selection-start-column="27" selection-end-line="128" selection-end-column="27" />
               <folding>
                 <element signature="e#0#48#0" expanded="false" />
@@ -115,10 +109,10 @@
       <list>
         <option value="$PROJECT_DIR$/ReadMe.markdown" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/2048.css" />
         <option value="$PROJECT_DIR$/support2048.js" />
         <option value="$PROJECT_DIR$/showannimation2048.js" />
         <option value="$PROJECT_DIR$/main2048.js" />
+        <option value="$PROJECT_DIR$/2048.css" />
       </list>
     </option>
   </component>
@@ -252,12 +246,12 @@
       <workItem from="1486105260182" duration="16474000" />
       <workItem from="1486173058135" duration="69000" />
       <workItem from="1486173237243" duration="1342000" />
-      <workItem from="1486182526915" duration="2255000" />
+      <workItem from="1486182526915" duration="2441000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24577000" />
+    <option name="totallyTimeSpent" value="24763000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="0" width="1936" height="1038" extended-state="0" />
@@ -516,31 +510,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ReadMe.markdown">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="1" column="10" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="36">
-            <caret line="1" column="10" lean-forward="false" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2048.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-72">
-          <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/support2048.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">
@@ -571,11 +540,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main2048.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
+        <state relative-caret-position="4536">
           <caret line="128" column="27" lean-forward="true" selection-start-line="128" selection-start-column="27" selection-end-line="128" selection-end-column="27" />
           <folding>
             <element signature="e#0#48#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReadMe.markdown">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="1" column="10" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="36">
+            <caret line="1" column="10" lean-forward="false" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2048.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="40" column="12" lean-forward="false" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
