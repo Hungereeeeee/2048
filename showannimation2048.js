@@ -3,14 +3,13 @@
  */
 function showNumberWithAnimation(i,j,randNumber){
     var theNumberCell = $('#number-cell-'+i+'-'+j);
-    console.log(randNumber)
     theNumberCell.css('background-color',getNumberBackgroundColor(randNumber));
     theNumberCell.css('color',getNumberColor(randNumber));
     theNumberCell.text(randNumber);
 
     theNumberCell.animate({
-        width:"100px",
-        height:"100px",
+        width:cellSideLength,
+        height:cellSideLength,
         top:getPosTop(i,j),
         left:getPosLeft(i,j)
     },50);

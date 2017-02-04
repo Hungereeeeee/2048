@@ -5,9 +5,29 @@ var board=new Array();
 var score=0;
 var hasConflicted=new Array();
 
+var startx=0;
+var starty =0;
+var endx=0;
+var endy=0;
 $(document).ready(function(){
+    prepareForMobile();
     newgame();
 })
+function prepareForMobile() {
+    if(documentWidth>500){
+        gridContainerWidth=500;
+        cellSpace=20;
+        cellSideLength=100;
+    }
+    $('#grid-container').css('width',gridContainerWidth-2*cellSpace);
+    $('#grid-container').css('height',gridContainerWidth-2*cellSpace);
+    $('#grid-container').css('padding',cellSpace);
+    $('#grid-container').css('border-radius',0.02*gridContainerWidth);
+
+    $('.grid-ceil').css('width',cellSideLength);
+    $('.grid-ceil').css('height',cellSideLength);
+    $('.grid-ceil').css('border-radius',0.02*cellSideLength);
+}
 function newgame(){
     //初始化棋盘
     init();
@@ -49,11 +69,11 @@ function updateBoardView() {
             if(board[i][j]==0){
                 theNumberCell.css('width','0px');
                 theNumberCell.css('height','0px');
-                theNumberCell.css('top',getPosTop(i,j)+50);
-                theNumberCell.css('left',getPosLeft(i,j)+50);
+                theNumberCell.css('top',getPosTop(i,j)+cellSideLength/2);
+                theNumberCell.css('left',getPosLeft(i,j)+cellSideLength/2);
             }else{
-                theNumberCell.css('width','100px');
-                theNumberCell.css('height','100px');
+                theNumberCell.css('width',cellSideLength);
+                theNumberCell.css('height',cellSideLength);
                 theNumberCell.css('top',getPosTop(i,j));
                 theNumberCell.css('left',getPosLeft(i,j));
                 theNumberCell.css('background-color',getNumberBackgroundColor(board[i][j]));
@@ -63,9 +83,10 @@ function updateBoardView() {
             hasConflicted[i][j] = false;
         }
     }
+    $('.number-cell').css('line-height',cellSideLength+'px');
+    $('.number-cell').css('font-size',0.3*cellSideLength+'px');
 }
 function generateOneNumber(){
-    console.log(1)
     if(nospace(board))
         return false;
     //随机一个位置
@@ -99,28 +120,83 @@ function generateOneNumber(){
 
     return true;
 }
+document.addEventListener('touchstart',function () {
+    startx=event.touches[0].pageX;
+    starty=event.touches[0].pageY;
+})
+document.addEventListener('touchmove',function () {
+    //如果不正确使用preventDefault可能会导致touch不正确触发
+    event.preventDefault();
+})
+document.addEventListener('touchend',function () {
+    endx = event.changedTouches[0].pageX;
+    endy = event.changedTouches[0].pageY;
 
+    var deltax = endx-startx;
+    var deltay= endy-starty;
+
+    if(Math.abs(deltax)<0.2*documentWidth&&Math.abs(deltay)<0.2*documentWidth)
+        return;
+    //x
+    if(Math.abs(deltax)>=Math.abs(deltay)){
+        if(deltax>0){
+            //moveright
+            if(moveRight()){
+                setTimeout("generateOneNumber()",210);
+                setTimeout("isgameover()",300);
+            }
+        }else{
+            //moveLeft
+            if(moveLeft()){
+                setTimeout("generateOneNumber()",210);
+                setTimeout("isgameover()",300);
+            }
+        }
+
+    }//y
+    else{
+       if(deltay>0){
+           //movedown
+           if(moveDown()){
+               setTimeout("generateOneNumber()",210);
+               setTimeout("isgameover()",300);
+           }
+       }else{
+           //moveup
+           if(moveUp()){
+               setTimeout("generateOneNumber()",210);
+               setTimeout("isgameover()",300);
+           }
+       }
+    }
+})
 $(document).keydown(function(event){
+
     switch(event.keyCode){
         case 37:
+            //阻止默认效果
+            event.preventDefault();
             if(moveLeft()){
                 setTimeout("generateOneNumber()",210);
                 setTimeout("isgameover()",300);
             }
             break;
         case 38:
+            event.preventDefault();
             if(moveUp()){
                 setTimeout("generateOneNumber()",210);
                 setTimeout("isgameover()",300);
             }
             break;
         case 39:
+            event.preventDefault();
             if(moveRight()){
                 setTimeout("generateOneNumber()",210);
                 setTimeout("isgameover()",300);
             }
             break;
         case 40:
+            event.preventDefault();
             if(moveDown()){
                 setTimeout("generateOneNumber()",210);
                 setTimeout("isgameover()",300);
