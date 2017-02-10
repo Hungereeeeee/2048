@@ -1,17 +1,16 @@
-/**
- * Created by Administrator on 2017/2/3.
- */
-documentWidth = window.screen.availWidth;
-gridContainerWidth = 0.92*documentWidth;
-cellSideLength = 0.18*documentWidth;
-cellSpace=0.04*documentWidth;
-function getPosTop(i , j){
-    return cellSpace+i*(cellSpace+cellSideLength);
+function Support() {
+    this.documentWidth = window.screen.availWidth;
+    this.gridContainerWidth = 0.92*this.documentWidth;
+    this.cellSideLength = 0.18*this.documentWidth;
+    this.cellSpace=0.04*this.documentWidth;
 }
-function getPosLeft(i , j){
-    return cellSpace+j*(cellSpace+cellSideLength);
+Support.prototype.getPosTop = function (i,j){
+    return this.cellSpace+i*(this.cellSpace+this.cellSideLength);
 }
-function getNumberBackgroundColor(number){
+Support.prototype.getPosLeft = function (i,j){
+    return this.cellSpace+j*(this.cellSpace+this.cellSideLength);
+}
+Support.prototype.getNumberBackgroundColor = function (number){
     switch (number){
         case 2:return '#eee4da';break;
         case 4:return '#ede0c8';break;
@@ -29,12 +28,12 @@ function getNumberBackgroundColor(number){
     }
     return "black";
 }
-function getNumberColor(number){
-   if(number<=4)
-       return '#776e65'
+Support.prototype.getNumberColor = function (number){
+    if(number<=4)
+        return '#776e65'
     return 'white';
 }
-function nospace(board){
+Support.prototype.nospace = function (board){
     for(var i=0;i<4;i++)
         for(var j=0;j<4;j++){
             if(board[i][j]==0)
@@ -43,7 +42,16 @@ function nospace(board){
 
     return true;
 }
-function canMoveLeft(board){
+Support.prototype.nospace = function (board){
+    for(var i=0;i<4;i++)
+        for(var j=0;j<4;j++){
+            if(board[i][j]==0)
+                return false;
+        }
+
+    return true;
+}
+Support.prototype.canMoveLeft = function (board){
     for(var i=0;i<4;i++)
         for(var j=1;j<4;j++)
             if(board[i][j]!=0)
@@ -52,7 +60,7 @@ function canMoveLeft(board){
 
     return false;
 }
-function canMoveRight(board) {
+Support.prototype.canMoveRight = function (board){
     for(var i=0;i<4;i++)
         for(var j=2;j>=0;j--)
             if(board[i][j]!=0)
@@ -61,14 +69,14 @@ function canMoveRight(board) {
 
     return false;
 }
-function noBlockHorizontal(row,col1,col2,board) {
+Support.prototype.noBlockHorizontal = function (row,col1,col2,board){
     for(var i= col1+1;i<col2;i++)
         if(board[row][i]!=0)
             return false;
 
     return true;
 }
-function canMoveUp(board) {
+Support.prototype.canMoveUp = function (board){
     for(var j=0;j<4;j++)
         for(var i=1;i<4;i++){
             if(board[i][j]!=0)
@@ -78,7 +86,7 @@ function canMoveUp(board) {
 
     return false;
 }
-function canMoveDown(board) {
+Support.prototype.canMoveDown = function (board){
     for(var j=0;j<4;j++)
         for(var i=2;i>=0;i--){
             if(board[i][j]!=0)
@@ -88,16 +96,18 @@ function canMoveDown(board) {
 
     return false;
 }
-function noBlockVertical(col,row1,row2,board) {
+Support.prototype.noBlockVertical = function (col,row1,row2,board){
     for(var i= row1+1;i<row2;i++)
         if(board[i][col]!=0)
             return false;
 
     return true;
 }
-function nomove(board) {
-    if (canMoveDown(board)||canMoveLeft(board)||canMoveRight(board)||canMoveUp(board))
+Support.prototype.nomove = function (board){
+    if (this.canMoveDown(board)||this.canMoveLeft(board)||this.canMoveRight(board)||this.canMoveUp(board))
         return false;
 
     return true;
 }
+var support = new Support();
+export {support}
