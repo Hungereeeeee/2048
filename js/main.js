@@ -9,6 +9,7 @@ import $ from 'jquery'
         this.board=new Array();
         this.hasConflicted=new Array();
         this.highScore = 0;
+        this.flag = true;
         var _this=this;
         $(document).ready(function(){
             _this.prepareForMobile();
@@ -390,46 +391,63 @@ import $ from 'jquery'
                 case 37:
                     //阻止默认效果
                     event.preventDefault();
-                    if(_this.moveLeft()){
-                        setTimeout(function(){
-                            _this.generateOneNumber();
-                        },210);
-                        setTimeout(function(){
-                            _this.isgameover();
-                        },300);
+                    if(_this.flag){
+                        if(_this.moveLeft()){
+                            _this.flag=false;
+                            setTimeout(function(){
+                                _this.generateOneNumber();
+                            },210);
+                            setTimeout(function(){
+                                _this.isgameover();
+                                _this.flag=true;
+                            },300);
+                        }
                     }
                     break;
                 case 38:
                     event.preventDefault();
-                    if(_this.moveUp()){
-                        setTimeout(function(){
-                            _this.generateOneNumber();
-                        },210);
-                        setTimeout(function(){
-                            _this.isgameover();
-                        },300);
+                    if(_this.flag){
+                        if(_this.moveUp()){
+                            _this.flag=false;
+                            setTimeout(function(){
+                                _this.generateOneNumber();
+                            },210);
+                            setTimeout(function(){
+                                _this.isgameover();
+                                _this.flag = true;
+                            },300);
+                        }
                     }
                     break;
                 case 39:
                     event.preventDefault();
-                    if(_this.moveRight()){
-                        setTimeout(function(){
-                            _this.generateOneNumber();
-                        },210);
-                        setTimeout(function(){
-                            _this.isgameover();
-                        },300);
+                    if(_this.flag){
+                        if(_this.moveRight()){
+                            _this.flag = false;
+                            setTimeout(function(){
+                                _this.generateOneNumber();
+                            },210);
+                            setTimeout(function(){
+                                _this.isgameover();
+                                _this.flag = true;
+                            },300);
+                        }
                     }
+
                     break;
                 case 40:
                     event.preventDefault();
-                    if(_this.moveDown()){
-                        setTimeout(function(){
-                            _this.generateOneNumber();
-                        },210);
-                        setTimeout(function(){
-                            _this.isgameover();
-                        },300);
+                    if(_this.flag){
+                        if(_this.moveDown()){
+                            _this.flag = false;
+                            setTimeout(function(){
+                                _this.generateOneNumber();
+                            },210);
+                            setTimeout(function(){
+                                _this.isgameover();
+                                _this.flag = true;
+                            },300);
+                        }
                     }
                     break;
                 default:
