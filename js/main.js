@@ -28,6 +28,12 @@ import $ from 'jquery'
         $('#grid-container').css('padding',support.cellSpace);
         $('#grid-container').css('border-radius',0.02*support.gridContainerWidth);
 
+        $('#cover').css('width',support.gridContainerWidth-2*support.cellSpace);
+        $('#cover').css('height',support.gridContainerWidth-2*support.cellSpace);
+        $('#cover').css('padding',support.cellSpace);
+        $('#cover').css('border-radius',0.02*support.gridContainerWidth);
+        $('#cover').css('line-height',(support.gridContainerWidth-2*support.cellSpace)+'px');
+
         $('.grid-ceil').css('width',support.cellSideLength);
         $('.grid-ceil').css('height',support.cellSideLength);
         $('.grid-ceil').css('border-radius',0.02*support.cellSideLength);
@@ -148,7 +154,7 @@ import $ from 'jquery'
         }
     }
     Game.prototype.gameover = function(){
-        alert('gameover!')
+        $('#cover').show();
     }
     Game.prototype.moveLeft = function(){
         if(!support.canMoveLeft(this.board))
@@ -170,6 +176,7 @@ import $ from 'jquery'
                             this.board[i][j] = 0;
                             //addscore
                             this.score += this.board[i][k];
+                            this.hasConflicted[i][k] = true;
                             show.updateScore(this.score);
                             console.log(this.highScore)
                             if(this.score>this.highScore){
@@ -205,6 +212,7 @@ import $ from 'jquery'
                             this.board[i][k] += this.board[i][j];
                             this.board[i][j]=0;
                             this.score += this.board[i][k];
+                            this.hasConflicted[i][k] = true;
                             show.updateScore(this.score)
                             if(this.score>this.highScore){
                                 this.highScore = this.score;
@@ -243,6 +251,7 @@ import $ from 'jquery'
                             this.board[i][j]=0;
 
                             this.score += this.board[k][j];
+                            this.hasConflicted[k][j] = true;
                             show.updateScore(this.score);
                             console.log(this.highScore)
                             if(this.score>this.highScore){
@@ -281,6 +290,7 @@ import $ from 'jquery'
                             this.board[i][j]=0;
 
                             this.score += this.board[k][j];
+                            this.hasConflicted[k][j] = true;
                             show.updateScore(this.score);
                             console.log(this.highScore)
                             if(this.score>this.highScore){
@@ -307,6 +317,7 @@ import $ from 'jquery'
             _this.init();
             _this.generateOneNumber();
             _this.generateOneNumber();
+            $('#cover').hide();
         })
         document.addEventListener('touchstart',function () {
             _this.startx=event.touches[0].pageX;
@@ -393,22 +404,7 @@ import $ from 'jquery'
                     event.preventDefault();
                     if(_this.flag){
                         if(_this.moveLeft()){
-                            _this.flag=false;
-                            setTimeout(function(){
-                                _this.generateOneNumber();
-                            },210);
-                            setTimeout(function(){
-                                _this.isgameover();
-                                _this.flag=true;
-                            },300);
-                        }
-                    }
-                    break;
-                case 38:
-                    event.preventDefault();
-                    if(_this.flag){
-                        if(_this.moveUp()){
-                            _this.flag=false;
+                            _this.flag = false;
                             setTimeout(function(){
                                 _this.generateOneNumber();
                             },210);
@@ -418,6 +414,22 @@ import $ from 'jquery'
                             },300);
                         }
                     }
+                    break;
+                case 38:
+                    event.preventDefault();
+                    if(_this.flag){
+                        if(_this.moveUp()){
+                            _this.flag = false
+                            setTimeout(function(){
+                                _this.generateOneNumber();
+                            },210);
+                            setTimeout(function(){
+                                _this.isgameover();
+                                _this.flag = true;
+                            },300);
+                        }
+                    }
+
                     break;
                 case 39:
                     event.preventDefault();
