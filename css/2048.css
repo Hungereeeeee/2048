@@ -14,7 +14,7 @@ header h1{
     margin: 0;
 }
 header #newgamebutton{
-    display:block;
+    display:inline-block;
     margin: 0px auto;
     width: 100px;
     padding:10px 10px;
@@ -30,7 +30,7 @@ header #newgamebutton:hover{
 header p{
     font-family: Arial;
     font-size:20px;
-    margin:15px 100px;
+    /*margin:0px 100px;*/
     display: inline-block;
 }
 header p>span{
